@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta de Amor</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 50px;
+      color: #880e4f;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    #carta {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      min-height: 160px;
+      white-space: pre-wrap;
+      border: 2px dashed #f8bbd0;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    img {
+      margin-top: 30px;
+      width: 120px;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    #responderBtn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #f06292;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>Para Ti, Con Todo Mi Amor</h1>
+
+  <div id="carta"></div>
+
+  <img id="corazon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Heart_corazón.svg/1024px-Heart_corazón.svg.png" alt="Corazón" />
+
+  <button id="responderBtn" onclick="responder()">Responder Carta</button>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    const texto = `Desde el momento en que te conocí, supe que había algo especial en ti.
+Cada día contigo es una nueva aventura llena de sonrisas, cariño y sueños compartidos.
+Gracias por estar en mi vida, por tu ternura, por tu paciencia, y por hacerme sentir amado cada día.
+
+Esta carta es solo un pequeño recordatorio de todo el amor que tengo para darte.`;
+
+    let i = 0;
+    const cartaDiv = document.getElementById("carta");
+
+    function escribirLetra() {
+      if (i < texto.length) {
+        cartaDiv.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escribirLetra, 50);
+      } else {
+        document.getElementById("corazon").style.opacity = 1;
+        document.getElementById("responderBtn").style.opacity = 1;
+      }
+    }
+
+    function responder() {
+      alert("¡Gracias por tu respuesta! Espero tu carta con mucho amor.");
+    }
+
+    escribirLetra();
+  </script>
+</body>
+</html>
